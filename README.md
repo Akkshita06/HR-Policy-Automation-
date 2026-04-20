@@ -379,6 +379,8 @@ python main.py
 ---
 ## 12. Screenshots
 <img width="1919" height="1001" alt="image" src="https://github.com/user-attachments/assets/4d5f472d-d866-41b0-bc30-ccdaa114d504" />
+<img width="1919" height="1008" alt="image" src="https://github.com/user-attachments/assets/46df4079-c19b-440a-8a42-b5655a0a93a5" />
+
 
 ## 13. Future Improvements
 
