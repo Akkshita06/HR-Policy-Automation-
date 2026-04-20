@@ -377,8 +377,10 @@ python main.py
 | Routing | LLM-based | Flexible; handles edge cases better than keyword matching |
 
 ---
+## 12. Screenshots
+<img width="1919" height="1001" alt="image" src="https://github.com/user-attachments/assets/4d5f472d-d866-41b0-bc30-ccdaa114d504" />
 
-## 12. Future Improvements
+## 13. Future Improvements
 
 | Priority | Improvement | Description |
 |---|---|---|
