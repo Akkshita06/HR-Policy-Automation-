@@ -1,122 +1,126 @@
-# HR Policy Bot — Agentic AI Capstone 2026
+# 🚀 HR Policy Bot — Agentic AI Capstone 2026
 
-A fully working multi-turn HR Policy assistant built with **LangGraph**, **ChromaDB RAG**, **Groq LLM**, and **Streamlit**.
+A production-ready multi-turn HR Policy Assistant built using LangGraph, ChromaDB (RAG), Groq LLM, and Streamlit.
+
+This project demonstrates a complete agentic pipeline with memory, retrieval, tool usage, and self-evaluation—simulating a real-world HR assistant.
 
 ---
 
-## Project Structure
+## ✨ Features
 
-```
+- Agentic workflow using LangGraph (multi-node pipeline)
+- Retrieval-Augmented Generation (ChromaDB)
+- Multi-turn conversational memory
+- Self-evaluation loop for response quality
+- Tool integration (datetime)
+- Streamlit-based web UI
+- Test suite + RAGAS evaluation
+
+---
+
+## 📂 Project Structure
 hr_policy_bot/
 ├── agent/
-│   ├── __init__.py
-│   ├── knowledge_base.py   # 10 HR policy documents
-│   ├── state.py            # CapstoneState TypedDict
-│   ├── nodes.py            # All 8 LangGraph node functions
-│   └── graph.py            # Graph assembly, LLM/ChromaDB setup
+│ ├── knowledge_base.py
+│ ├── state.py
+│ ├── nodes.py
+│ └── graph.py
 ├── ui/
-│   ├── __init__.py
-│   └── app.py              # Streamlit web UI
+│ └── app.py
 ├── tests/
-│   ├── __init__.py
-│   ├── test_agent.py       # 13 test questions + summary table
-│   └── ragas_eval.py       # RAGAS baseline evaluation
-├── main.py                 # Terminal chat interface
+│ ├── test_agent.py
+│ └── ragas_eval.py
+├── main.py
 ├── requirements.txt
-├── .env                    # Your API key goes here
+├── .env.example
 └── README.md
-```
 
 ---
 
-## Setup — Step by Step
+## ⚙️ Setup
 
-### 1. Clone / open in VS Code
-Open the `hr_policy_bot/` folder in VS Code.
-
-### 2. Create a virtual environment
+### 1. Clone Repository
 ```bash
+git clone https://github.com/your-username/hr_policy_bot.git
+cd hr_policy_bot
+
+2. Create Virtual Environment
 python -m venv venv
 
-# Windows:
+# Windows
 venv\Scripts\activate
 
-# Mac / Linux:
+# Mac/Linux
 source venv/bin/activate
-```
-
-### 3. Install dependencies
-```bash
+3. Install Dependencies
 pip install -r requirements.txt
-```
+4. Configure Environment Variables
 
-### 4. Add your Groq API key
-Open the `.env` file and replace the placeholder:
-```
-GROQ_API_KEY=your_actual_groq_api_key_here
-```
-Get your free key at: https://console.groq.com
+Create a .env file:
 
----
-
-## How to Run
-
-### Option A — Streamlit Web UI (recommended)
-```bash
+GROQ_API_KEY=your_actual_groq_api_key
+▶️ Running the Project
+Streamlit UI (Recommended)
 streamlit run ui/app.py
-```
-Opens in browser at http://localhost:8501
 
-### Option B — Terminal Chat
-```bash
+Open: http://localhost:8501
+
+Terminal Chat
 python main.py
-```
-
-### Option C — Run All Tests
-```bash
+Run Tests
 python tests/test_agent.py
-```
-
-### Option D — RAGAS Evaluation
-```bash
+RAGAS Evaluation
 python tests/ragas_eval.py
-```
+🧠 Architecture
+User Input
+   ↓
+memory_node     → manages conversation state
+   ↓
+router_node     → decides: retrieve | tool | memory
+   ↓
+retrieval_node  → fetches context from ChromaDB
+tool_node       → executes tools (datetime)
+skip_node       → bypass retrieval when needed
+   ↓
+answer_node     → generates response (LLM)
+   ↓
+eval_node       → checks faithfulness (retry if needed)
+   ↓
+save_node       → updates memory → END
+📊 Capabilities
+#	Capability	Implementation
+1	LangGraph StateGraph (8 nodes)	agent/graph.py
+2	ChromaDB RAG	agent/knowledge_base.py
+3	Conversational Memory	MemorySaver
+4	Self-Evaluation Loop	eval_node
+5	Tool Usage	tool_node
+6	Streamlit UI	ui/app.py
+🛠️ Tech Stack
+LangGraph
+ChromaDB
+Groq LLM
+Streamlit
+RAGAS
+🚀 Deployment
 
----
+You can deploy this app using:
 
-## Architecture
+Streamlit Cloud
+Render
+⚠️ Notes
+Do not commit your .env file
+Always run commands from the root directory
+Ensure dependencies are installed before running
+📌 Future Improvements
+Add authentication
+Expand HR knowledge base
+Add more tools (payroll, leave balance)
+Improve evaluation metrics
+📄 License
 
-```
-User question
-     ↓
-[memory_node]    → slide window, extract name, reset retries
-     ↓
-[router_node]    → LLM decides: retrieve / tool / memory_only
-     ↓
-[retrieval_node] → embed question → ChromaDB top-3 chunks
-[skip_node]      → clear context (tool/memory route)
-[tool_node]      → datetime tool (current date/time)
-     ↓
-[answer_node]    → system prompt + context + history → LLM answer
-     ↓
-[eval_node]      → faithfulness score (0.0–1.0) → retry if < 0.7
-     ↓
-[save_node]      → append answer to messages → END
-```
+MIT License
 
----
+👤 Author
 
-# Capabilities
-
-| # | Capability | Where |
-|---|-----------|-------|
-| 1 | LangGraph StateGraph (8 nodes) | agent/graph.py |
-| 2 | ChromaDB RAG (10 documents) | agent/knowledge_base.py, agent/nodes.py |
-| 3 | MemorySaver + thread_id | agent/graph.py |
-| 4 | Self-reflection eval node | agent/nodes.py → eval_node |
-| 5 | Tool use (datetime) | agent/nodes.py → tool_node |
-| 6 | Streamlit deployment | ui/app.py |
-
-
-
+Akshita N
 
