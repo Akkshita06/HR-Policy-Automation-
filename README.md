@@ -44,10 +44,10 @@ hr_policy_bot/
 git clone https://github.com/your-username/hr_policy_bot.git
 cd hr_policy_bot
 
-2. Create Virtual Environment
+## Create Virtual Environment
 python -m venv venv
 
-# Windows
+ Windows
 venv\Scripts\activate
 
 # Mac/Linux
