@@ -106,7 +106,7 @@ User question
 
 ---
 
-## Six Mandatory Capabilities
+# Capabilities
 
 | # | Capability | Where |
 |---|-----------|-------|
@@ -117,17 +117,6 @@ User question
 | 5 | Tool use (datetime) | agent/nodes.py → tool_node |
 | 6 | Streamlit deployment | ui/app.py |
 
----
 
-## Submission Checklist
-
-- [ ] All cells run without error (Kernel > Restart & Run All)
-- [ ] ZIP file with all project files
-- [ ] GitHub repository (public)
-- [ ] PDF Documentation (4–5 pages, Arial, A4)
-- [ ] Name, Roll Number, Batch on title page
-- [ ] RAGAS scores recorded in written summary
-- [ ] Test results table filled in
-- [ ] Deadline: April 21, 2026 | 11:59 PM
 
 
