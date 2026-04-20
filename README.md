@@ -130,6 +130,4 @@ User question
 - [ ] Test results table filled in
 - [ ] Deadline: April 21, 2026 | 11:59 PM
 
----
 
-*Dr. Kanthi Kiran Sirra | Sr. AI Engineer | Agentic AI Course 2026*
