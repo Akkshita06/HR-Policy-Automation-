@@ -393,4 +393,4 @@ python main.py
 
 ---
 
-*Agentic AI Capstone 2026 · Dr. Kanthi Kiran Sirra · Sr. AI Engineer*
+
